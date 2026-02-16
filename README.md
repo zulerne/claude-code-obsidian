@@ -34,6 +34,8 @@ git clone https://github.com/zulerne/claude-code-obsidian.git
 cp -r claude-code-obsidian/skills/note ~/.claude/skills/note
 ```
 
+Restart Claude Code after installing.
+
 ### Configure
 
 Add config to your `~/.claude/CLAUDE.md` (required for both options):
