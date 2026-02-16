@@ -16,15 +16,15 @@ allowed-tools:
 
 ## Configuration
 
-First, read `~/.claude/skills/note/config.yaml` using the Read tool. This YAML file contains:
+The user's CLAUDE.md (already in context) contains an `obsidian-skills config` section with a YAML block. Extract these values:
 
 - `obsidian_vault` (required) — absolute path to the vault root
 - `learn_dir` (optional, default: `Learn`) — subdirectory for learn notes
 - `logs_dir` (optional, default: `Logs`) — subdirectory for session logs
 - `note_language` (optional, default: `English`) — language for note content (code, commands, filenames always stay in English)
 
-If the file does not exist or `obsidian_vault` is missing, stop and tell the user:
-> To use /note, create `~/.claude/skills/note/config.yaml` with your vault path. See: https://github.com/retw/claude-code-obsidian#configuration
+If `obsidian_vault` is not found in context, stop and tell the user:
+> To use /note, add Obsidian config to your `~/.claude/CLAUDE.md`. See: https://github.com/zulerne/claude-code-obsidian#configuration
 
 ## Task
 

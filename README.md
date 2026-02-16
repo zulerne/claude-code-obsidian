@@ -26,19 +26,17 @@ The skill automatically picks the right note type based on the session content, 
 cp -r skills/note ~/.claude/skills/note
 ```
 
-2. Create your config:
+2. Add config to your `~/.claude/CLAUDE.md`:
 
-```bash
-cp ~/.claude/skills/note/config.yaml.example ~/.claude/skills/note/config.yaml
-```
+```markdown
+## obsidian-skills config
 
-3. Edit `~/.claude/skills/note/config.yaml` — set your vault path:
-
-```yaml
+​```yaml
 obsidian_vault: /Users/yourname/Documents/obsidian/my-vault
+​```
 ```
 
-4. Run `/note` at the end of a session. That's it.
+3. Run `/note` at the end of a session. That's it.
 
 ### Try it now
 
@@ -52,7 +50,7 @@ Claude will analyze the conversation and create a note in your vault.
 
 ## Configuration
 
-Edit `~/.claude/skills/note/config.yaml`:
+Add an `obsidian-skills config` section to your `~/.claude/CLAUDE.md` with a YAML block:
 
 ```yaml
 obsidian_vault: /Users/yourname/Documents/obsidian/my-vault
