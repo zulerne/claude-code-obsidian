@@ -27,16 +27,12 @@ The skill automatically picks the right note type based on the session content, 
 /plugin install obsidian@zulerne-claude-code-obsidian
 ```
 
-Invoke as `/obsidian:note`.
-
 ### Option B: As a standalone skill
 
 ```bash
 git clone https://github.com/zulerne/claude-code-obsidian.git
 cp -r claude-code-obsidian/skills/note ~/.claude/skills/note
 ```
-
-Invoke as `/note`.
 
 ### Configure
 
@@ -47,6 +43,9 @@ Add config to your `~/.claude/CLAUDE.md` (required for both options):
 
 ​```yaml
 obsidian_vault: /Users/yourname/Documents/obsidian/my-vault
+learn_dir: Learn       # subdirectory for learn notes
+logs_dir: Logs         # subdirectory for session logs
+note_language: English # language for note content
 ​```
 ```
 
@@ -62,13 +61,17 @@ Claude will analyze the conversation and create a note in your vault.
 
 ## Configuration
 
-Add an `obsidian-skills config` section to your `~/.claude/CLAUDE.md` with a YAML block:
+Add this block to your `~/.claude/CLAUDE.md`:
 
-```yaml
+```markdown
+## obsidian-skills config
+
+​```yaml
 obsidian_vault: /Users/yourname/Documents/obsidian/my-vault
-learn_dir: Learn
-logs_dir: Logs
-note_language: English
+learn_dir: Learn       # subdirectory for learn notes
+logs_dir: Logs         # subdirectory for session logs
+note_language: English # language for note content
+​```
 ```
 
 | Key | Required | Default | Description |
