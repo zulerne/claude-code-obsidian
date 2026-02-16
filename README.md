@@ -18,15 +18,29 @@ The `/note` skill analyzes your current Claude Code session and creates a well-s
 
 The skill automatically picks the right note type based on the session content, or you can force it with `/note learn` or `/note log`.
 
-## Quick start
+## Installation
 
-1. Copy the skill:
+### Option A: As a plugin
 
-```bash
-cp -r skills/note ~/.claude/skills/note
+```
+/plugin marketplace add zulerne/claude-code-obsidian
+/plugin install obsidian@zulerne-claude-code-obsidian
 ```
 
-2. Add config to your `~/.claude/CLAUDE.md`:
+Invoke as `/obsidian:note`.
+
+### Option B: As a standalone skill
+
+```bash
+git clone https://github.com/zulerne/claude-code-obsidian.git
+cp -r claude-code-obsidian/skills/note ~/.claude/skills/note
+```
+
+Invoke as `/note`.
+
+### Configure
+
+Add config to your `~/.claude/CLAUDE.md` (required for both options):
 
 ```markdown
 ## obsidian-skills config
@@ -35,8 +49,6 @@ cp -r skills/note ~/.claude/skills/note
 obsidian_vault: /Users/yourname/Documents/obsidian/my-vault
 ​```
 ```
-
-3. Run `/note` at the end of a session. That's it.
 
 ### Try it now
 

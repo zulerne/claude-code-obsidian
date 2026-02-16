@@ -1,0 +1,12 @@
+{
+  "name": "obsidian",
+  "description": "Create Obsidian notes from Claude Code sessions — learn notes and session logs",
+  "version": "0.1.0",
+  "author": {
+    "name": "zulerne"
+  },
+  "homepage": "https://github.com/zulerne/claude-code-obsidian",
+  "repository": "https://github.com/zulerne/claude-code-obsidian",
+  "license": "MIT",
+  "keywords": ["obsidian", "notes", "session-log"]
+}
