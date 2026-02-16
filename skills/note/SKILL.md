@@ -16,7 +16,7 @@ allowed-tools:
 
 ## Configuration
 
-The user's CLAUDE.md (already in context) contains an `obsidian-skills config` section with a YAML block. Extract these values:
+The user's CLAUDE.md (already in context) contains an `claude-code-obsidian-plugin-config` section with a YAML block. Extract these values:
 
 - `obsidian_vault` (required) — absolute path to the vault root
 - `learn_dir` (optional, default: `Learn`) — subdirectory for learn notes

@@ -41,7 +41,7 @@ Restart Claude Code after installing.
 Add config to your `~/.claude/CLAUDE.md` (required for both options):
 
 ```markdown
-## obsidian-skills config
+## claude-code-obsidian-plugin-config
 
 ​```yaml
 obsidian_vault: /Users/yourname/Documents/obsidian/my-vault
@@ -66,7 +66,7 @@ Claude will analyze the conversation and create a note in your vault.
 Add this block to your `~/.claude/CLAUDE.md`:
 
 ```markdown
-## obsidian-skills config
+## claude-code-obsidian-plugin-config
 
 ​```yaml
 obsidian_vault: /Users/yourname/Documents/obsidian/my-vault
