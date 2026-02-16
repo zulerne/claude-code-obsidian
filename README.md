@@ -133,6 +133,17 @@ vault/
 
 Each session log includes: date, project name, what was done, key decisions, and changed files.
 
+## How it works
+
+When you invoke `/note`, the skill:
+
+1. Runs `git log --oneline -5` and `git diff --stat` to gather current repo context (read-only, fails silently outside git repos)
+2. Reads your config from `~/.claude/CLAUDE.md` (already in context — no extra tool calls)
+3. Analyzes the conversation to determine note type (learn or log)
+4. Writes a single Markdown file to your vault using the `Write` tool
+
+The skill only has access to `Read`, `Write`, and `Glob` tools.
+
 ## Tips
 
 - Run `/note` **before** `/compact` or `/clear` — the skill needs the full conversation to produce a good note.
