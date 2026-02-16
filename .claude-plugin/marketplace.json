@@ -1,4 +1,8 @@
 {
+  "name": "claude-code-obsidian",
+  "owner": {
+    "name": "zulerne"
+  },
   "plugins": [
     {
       "name": "obsidian",
