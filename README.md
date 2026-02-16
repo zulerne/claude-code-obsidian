@@ -1,5 +1,8 @@
 # claude-code-obsidian
 
+[![Claude Code Skill](https://img.shields.io/badge/Claude-Code_Skill-violet)](https://claude.ai/code)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Claude Code skills for creating [Obsidian](https://obsidian.md/) notes from your coding sessions.
 
 Ever spent the whole day coding with Claude — debugging, learning new tools, refactoring — and by evening you can't recall half of what you did? Or explained something to yourself during a session, understood it perfectly, and then forgot the details a week later?
