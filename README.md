@@ -11,12 +11,12 @@ Ever spent the whole day coding with Claude — debugging, learning new tools, r
 
 ## What it does
 
-The `/note` skill analyzes your current Claude Code session and creates a well-structured Obsidian note:
+The `/note` skill analyzes your current Claude Code session and creates well-structured Obsidian notes:
 
 - **Learn notes** — when you explored a concept, learned something new, or discussed how things work. Creates a dense, textbook-style reference note.
 - **Session logs** — when you wrote code, fixed bugs, or configured tools. Creates a concise log of what was done, key decisions, and changed files.
 
-The skill automatically picks the right note type based on the session content, or you can force it with `/note learn` or `/note log`.
+The skill automatically detects what happened in the session and creates the appropriate notes. Mixed sessions (learning + practical work) produce multiple notes — learn note(s) for what was learned and a log for what was done. If the session covered distinct topics, separate learn notes are created for each.
 
 ## Installation
 
@@ -86,9 +86,10 @@ note_language: English # language for note content
 ## Usage
 
 ```
-/note          # auto-detect note type from conversation
-/note learn    # force a learn note
-/note log      # force a session log
+/note          # auto-detect: creates all applicable note types
+/note learn    # only learn note(s)
+/note log      # only a session log
+/note all      # explicitly create both (same as default smart behavior)
 ```
 
 ### Examples
@@ -100,7 +101,15 @@ After a session learning about Docker networking:
 → Created: ~/vault/Learn/Docker/Container Networking.md
 ```
 
-After a session fixing a CI pipeline:
+After a mixed session — learned about Docker networking while fixing a CI pipeline:
+
+```
+/note
+→ Created: ~/vault/Learn/Docker/Container Networking.md
+→ Created: ~/vault/Logs/2026-02-16-fix-ci-pipeline.md
+```
+
+After a session fixing a CI pipeline (log only):
 
 ```
 /note log
@@ -139,8 +148,8 @@ When you invoke `/note`, the skill:
 
 1. Runs `git log --oneline -5` and `git diff --stat` to gather current repo context (read-only, fails silently outside git repos)
 2. Reads your config from `~/.claude/CLAUDE.md` (already in context — no extra tool calls)
-3. Analyzes the conversation to determine note type (learn or log)
-4. Writes a single Markdown file to your vault using the `Write` tool
+3. Analyzes the conversation to determine which note types apply (learn, log, or both)
+4. Writes one or more Markdown files to your vault using the `Write` tool
 
 The skill only has access to `Read`, `Write`, and `Glob` tools.
 
@@ -148,7 +157,7 @@ The skill only has access to `Read`, `Write`, and `Glob` tools.
 
 - Run `/note` **before** `/compact` or `/clear` — the skill needs the full conversation to produce a good note.
 - No point running `/note` on a fresh or near-empty session. The skill will refuse to create an empty note.
-- For long sessions with multiple topics, run `/note` at natural breakpoints rather than once at the very end.
+- Mixed sessions are handled automatically — `/note` will create both learn and log notes as needed. For very long sessions, you can still run `/note` at natural breakpoints.
 
 ## Requirements
 

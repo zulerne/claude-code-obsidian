@@ -1,7 +1,7 @@
 ---
 name: note
 description: Create an Obsidian note summarizing the current session
-argument-hint: "[learn|log]"
+argument-hint: "[learn|log|all]"
 disable-model-invocation: true
 allowed-tools:
   - Read
@@ -30,17 +30,19 @@ If `obsidian_vault` is not found in context, stop and tell the user:
 
 Analyze the current conversation and create an Obsidian note.
 
-### Step 1: Determine note type
+### Step 1: Determine note types
 
 If the user passed an argument (`$ARGUMENTS`), use it directly:
-- `learn` — create a learn note
-- `log` — create a session log
+- `learn` — create only learn note(s)
+- `log` — create only a session log
+- `all` — create both learn note(s) and a log (same as default smart behavior, but explicit)
 
-Otherwise, determine the type from conversation content:
-- **Learn note** — if the session involved learning, explaining, or discussing fundamental concepts
-- **Session log** — if the session involved project work: writing code, fixing bugs, configuring tools, refactoring
+Otherwise, analyze the conversation and identify **all** applicable types:
+- If the session involved learning, explaining, or discussing fundamental concepts → plan learn note(s)
+- If the session involved project work: writing code, fixing bugs, configuring tools, refactoring → plan a log
+- If both → plan both
 
-If the session is mixed, choose the dominant type. One note per invocation.
+Multiple learn notes are allowed if the session covered **distinct topics** (e.g., Docker networking and Git rebase → two separate learn notes). Do not split into multiple notes if topics are closely related.
 
 ### Step 2: Create the note
 
@@ -107,11 +109,14 @@ Project: project name or directory
 
 **Note on language:** The templates above are in English (the default). If `note_language` is set to something else (e.g., `Russian`), translate the section headers and prose into that language. Code, commands, filenames, and tags always stay in English.
 
-### Step 3: Write the note
+### Step 3: Write the notes
+
+For each planned note:
 
 1. Use Glob to check the target path does not already exist
 2. Write the note using the Write tool
-3. Report what was created and where
+
+After all notes are written, report all created files and their paths.
 
 ### Rules
 
