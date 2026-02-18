@@ -1,7 +1,7 @@
 {
   "name": "obsidian",
   "description": "Create Obsidian notes from Claude Code sessions — learn notes and session logs",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": {
     "name": "zulerne"
   },

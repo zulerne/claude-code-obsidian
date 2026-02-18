@@ -9,8 +9,9 @@ allowed-tools:
   - Glob
 ---
 
-## Git context
+## Session context
 
+- Current time: !`date '+%Y-%m-%d %H:%M'`
 - Recent commits: !`git log --oneline -5 2>/dev/null || echo "not a git repo"`
 - Changed files: !`git diff --stat 2>/dev/null || echo "no changes"`
 
