@@ -87,7 +87,7 @@ Structure:
 ```
 # Short session description
 
-Date: YYYY-MM-DD
+Date: YYYY-MM-DD HH:mm
 Project: project name or directory
 
 ## What was done

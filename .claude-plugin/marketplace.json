@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "obsidian",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "description": "Create Obsidian notes from Claude Code sessions — learn notes and session logs",
       "source": "./"
     }
